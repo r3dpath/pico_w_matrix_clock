@@ -1,10 +1,9 @@
 cmake_minimum_required(VERSION 3.12)
+include($ENV{PICO_SDK_PATH}/external/pico_sdk_import.cmake)
 
 # Change your executable name to something creative!
-set(NAME clock-v1) # <-- Name your project/executable here!
+set(NAME clock-v2) # <-- Name your project/executable here!
 set(PICO_BOARD pico_w)
-
-include(pico_sdk_import.cmake)
 
 # Gooey boilerplate
 project(${NAME} C CXX ASM)
@@ -55,7 +54,7 @@ set(CPACK_INCLUDE_TOPLEVEL_DIRECTORY OFF)
 set(CPACK_GENERATOR "ZIP" "TGZ")
 include(CPack)
 
-pico_enable_stdio_usb(clock-v1 1)
-pico_enable_stdio_uart(clock-v1 0)
+pico_enable_stdio_usb(clock-v2 1)
+pico_enable_stdio_uart(clock-v2 0)
 
 pico_generate_pio_header(${NAME} ${CMAKE_CURRENT_LIST_DIR}/hub75.pio)
